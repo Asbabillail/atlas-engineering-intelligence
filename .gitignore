@@ -1,0 +1,12 @@
+# Generated archives and local artifacts
+dist/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+.venv/
+node_modules/
+.DS_Store
+.idea/
+.vscode/

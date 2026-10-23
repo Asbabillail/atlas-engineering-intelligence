@@ -1,0 +1,38 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "atlas-engineering-intelligence",
+  "version": "1.0.0",
+  "description": "An intent-aware software engineering assistant with focused workflows for implementation, web design, debugging, security, tool selection, and business architecture.",
+  "author": {
+    "name": "Asbabillail"
+  },
+  "keywords": [
+    "software engineering",
+    "natural language",
+    "full stack",
+    "architecture",
+    "debugging",
+    "code audit",
+    "developer tools",
+    "product strategy"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "ATLAS Developer",
+        "shortDescription": "Engineering intelligence",
+        "longDescription": "ATLAS interprets ordinary human language and turns software ideas into precise requirements, architecture, code, debugging plans, reviews, and commercially practical recommendations. It has focused skills for implementation, frontend quality, evidence-led defensive security audits, tool orchestration, and product strategy. ATLAS uses only tools actually available to the host and reports what was and was not executed. It does not include a standalone code execution server or automatic GitHub/Vercel permissions.",
+        "developerName": "Asbabillail",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Interactive"
+        ],
+        "defaultPrompt": [
+          "ATLAS, inspect my software project and recommend the highest-impact improvements.",
+          "Bro, my website feels generic. Help redesign it without breaking anything.",
+          "ATLAS, debug this problem and verify the smallest effective fix."
+        ]
+      }
+    }
+  }
+}
