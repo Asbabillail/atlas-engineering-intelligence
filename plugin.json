@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "atlas-engineering-intelligence",
-  "version": "1.0.0",
-  "description": "An intent-aware software engineering assistant with focused workflows for implementation, web design, debugging, security, tool selection, and business architecture.",
+  "version": "1.1.0",
+  "description": "ATLAS is a portable, natural-language software engineering intelligence with nine skills, evidence-led delivery, architecture, testing, AI-agent design, security, and business strategy.",
   "author": {
     "name": "Asbabillail"
   },
@@ -14,7 +14,11 @@
     "debugging",
     "code audit",
     "developer tools",
-    "product strategy"
+    "product strategy",
+    "cross-platform",
+    "agent skills",
+    "quality assurance",
+    "ai agents"
   ],
   "extensions": {
     "com.openai": {
@@ -34,5 +38,7 @@
         ]
       }
     }
-  }
+  },
+  "repository": "https://github.com/Asbabillail/atlas-engineering-intelligence",
+  "license": "MIT"
 }

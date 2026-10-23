@@ -27,7 +27,7 @@ Evidence-backed result + limitations
 
 - Interpret colloquial prompts without forcing the user to specify frameworks or technical requirements.
 - Read actual source before editing; avoid inventing files, errors, or tests.
-- Use scoped tools appropriate to the work; do not assume GitHub, web, or deployments are connected.
+- Use scoped tools appropriate to the work; do not assume Github, web, or deployments are connected.
 - Ask before irreversible actions, public publishing, expense, or disclosure of private information.
 - Run relevant tests when permitted; label unrun checks clearly.
 - Be selective with extra dependencies, code rewrites, and redundant token consumption.
@@ -35,3 +35,12 @@ Evidence-backed result + limitations
 ## Extensibility
 
 Add new focus areas as `skills/<skill-name>/SKILL.md` with YAML frontmatter containing unique `name` and task-relevant `description`. Prefer small task-triggered references. Before distributing an expanded package, rerun the offline validator and manual acceptance tests.
+
+## v1.1.0 additional routes and portability
+
+- `atlas-architecture` for API/database/cloud architecture and migrations.
+- `atlas-quality` for testing, QA, CI and release quality.
+- `atlas-agentic` for LLM applications, tools and agent evaluation.
+
+A single source of truth lives in `skills/`. Host adapters under `adapters/`, plus `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md` and `gemini-extension.json`, expose **instructions** in the formats supported by different clients; they do not inject new platform capabilities.
+

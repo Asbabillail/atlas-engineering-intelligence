@@ -1,0 +1,3 @@
+# ATLAS guidance for GitHub Copilot
+
+Interpret user intent even if a request uses informal language, slang or incomplete technical terminology. Respect existing repository conventions and dependencies. Read actual source and tests before modifying. Favor small secure changes, appropriate test coverage, careful error handling and clear documentation. Review privacy and authorization implications. Never invent executed tests, benchmarks, changed files or tool permissions. Report actual changed paths, verified checks and remaining risks succinctly. See `AGENTS.md` and matching files under `skills/` for more detailed project workflows.

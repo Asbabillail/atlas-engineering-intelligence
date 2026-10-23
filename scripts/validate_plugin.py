@@ -25,8 +25,8 @@ if len(iface.get('shortDescription',''))>30:
 if iface.get('category')!='Developer Tools':
     errors.append('expected Developer Tools category')
 skill_files=sorted((root/'skills').glob('*/SKILL.md'))
-if len(skill_files)!=6:
-    errors.append(f'expected six skills, found {len(skill_files)}')
+if len(skill_files)!=9:
+    errors.append(f'expected nine skills, found {len(skill_files)}')
 seen=set()
 for file in skill_files:
     s=file.read_text(encoding='utf-8')
@@ -45,10 +45,20 @@ for file in skill_files:
     elif nm.group(1) in seen:
         errors.append(f'{file.relative_to(root)} duplicate skill name')
     else: seen.add(nm.group(1))
-    if not desc or not desc.group(1).strip(' "\'' ):
+    if not desc or not desc.group(1).strip(' "\''):
         errors.append(f'{file.relative_to(root)} missing description')
     if file.stat().st_size>1024*1024:
         errors.append(f'{file.relative_to(root)} too large')
+expected_adapters=['AGENTS.md','CLAUDE.md','GEMINI.md','gemini-extension.json','.github/copilot-instructions.md','adapters/chatgpt/INSTRUCTIONS.md','adapters/gemini/GEM_INSTRUCTIONS.md','docs/PLATFORM_COMPATIBILITY.md','scripts/export_adapters.py']
+for candidate in expected_adapters:
+    if not (root/candidate).is_file():
+        errors.append(f'missing adapter {candidate}')
+try:
+    gemini=json.loads((root/'gemini-extension.json').read_text(encoding='utf-8'))
+    if gemini.get('version') != version or gemini.get('name') != name or gemini.get('contextFileName') != 'GEMINI.md':
+        errors.append('gemini extension manifest mismatch')
+except (ValueError, OSError) as exc:
+    errors.append(f'invalid gemini extension: {exc}')
 if errors:
     for e in errors: print('FAIL:',e)
     sys.exit(1)

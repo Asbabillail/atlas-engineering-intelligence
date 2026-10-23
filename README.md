@@ -1,77 +1,62 @@
-# ATLAS Developer
+# ATLAS Developer — Universal Software Engineering Intelligence
 
-**Advanced Technology, Logic & Architecture System**
+**v1.1.0 · Open source · MIT License**
 
-ATLAS is an open-source, modular **skills-only developer plugin** for ChatGPT and compatible agent-plugin environments. It helps translate informal human instructions into engineering requirements, then guides implementation, debugging, frontend design, code review, tool selection, and product/architecture decisions.
+ATLAS converts everyday human requests into scoped engineering plans and useful work. Instead of one bloated "god developer" prompt, it delivers **nine modular engineering skills** plus platform-specific adapters for major AI assistants and coding agents.
 
-> **Status:** v1.0.0 · Initial community source release candidate. Skills and package structure have been verified; systematic model-performance testing has not been completed.
+> ATLAS is a **skills/instructions framework**, not an autonomous programming runtime or a universal one-click install. Code execution, data access and deployment depend on the host and your permissions. Structural tests have passed; cross-model behavior is not yet benchmarked.
 
-## What makes ATLAS different?
+## What ATLAS can help with
 
-You can describe the result you want in everyday language. ATLAS is designed to interpret your intent, recognize project constraints, choose relevant specialist workflows, and help complete work using tools already made available to the assistant.
+- Understand slang, typos, informal questions and incomplete requirements without demanding professionally written prompts.
+- Review and improve frontend/backend code, APIs and database architecture.
+- Debug defects and verify fixes with available tests.
+- Evaluate product scope, operating costs and long-term maintainability.
+- Review defensive security and privacy risks without unsupported guarantees.
+- Plan AI-agent workflows, RAG, model/tool use and evaluation.
+- Select tools and context deliberately: **useful output per token**, not empty verbosity.
 
-Example requests:
+## Nine skills
 
-- “Bro my portfolio looks like an AI template. Improve it, but don't break anything.”
-- “Find out why my backend sometimes returns 401.”
-- “Audit this source code for authorization mistakes and exposed secrets.”
-- “Choose a sensible stack for a small SaaS with a tight budget.”
-- “Review my repository and suggest a plan based on impact.”
-
-## Features
-
-| Skill | Role |
+| Skill | Responsibilities |
 | --- | --- |
-| `atlas-core` | Natural-language intent interpretation, task routing, engineering judgment |
-| `atlas-build-debug` | Implementation, debugging, tests, regression checks |
-| `atlas-frontend` | Design quality, accessible UI, responsive layouts |
-| `atlas-security` | Defensive, evidence-based application security review |
-| `atlas-toolchain` | Research, tool choice, integration safety, efficient tool use |
-| `atlas-business` | Product feasibility, MVP scoping, tech strategy, operating costs |
+| `atlas-core` | Natural-language intent interpreter, orchestration, safe execution |
+| `atlas-build-debug` | Implementation, debugging and regressions |
+| `atlas-frontend` | UI/UX design, accessibility, performance |
+| `atlas-security` | Defensive security and source-first auditing |
+| `atlas-toolchain` | Tool selection, API/research discipline, cost-conscious workflows |
+| `atlas-business` | MVP/product strategy, ROI, budget and viability |
+| `atlas-architecture` | Backend, APIs, data modeling, cloud and migration design |
+| `atlas-quality` | Test strategy, CI and evidence-based release checks |
+| `atlas-agentic` | LLM applications, RAG, tool-calling agents and evaluations |
 
-ATLAS does **not** contain a model, MCP server, hosted runtime, GitHub authorization, deployment connection, credential, or standalone security scanner. Those must be supplied and authorized through the environment where it runs. No prompt can guarantee correctness or execution access.
+## Use with your favorite assistant
 
-## Get started
+| Platform | Supported adapter |
+| --- | --- |
+| ChatGPT / Codex Plugins | `plugin.json` + `skills/` |
+| Existing eligible ChatGPT Custom GPT | `adapters/chatgpt/INSTRUCTIONS.md` |
+| Claude.ai custom Skills | individual ZIP exports from `scripts/export_adapters.py` |
+| Claude Code | `CLAUDE.md` and skill source directories |
+| Gemini Gem | `adapters/gemini/GEM_INSTRUCTIONS.md` |
+| Gemini CLI | `gemini-extension.json` + `GEMINI.md` |
+| GitHub Copilot | `.github/copilot-instructions.md` |
+| Codex/AGENTS.md-capable agents | `AGENTS.md` |
 
-1. Read [installation and use](docs/INSTALL.md).
-2. Explore the [architecture and capability boundaries](docs/ARCHITECTURE.md).
-3. Try the manual scenarios in [`tests/ACCEPTANCE_SCENARIOS.md`](tests/ACCEPTANCE_SCENARIOS.md).
-4. Validate the package locally:
-   ```bash
-   python scripts/validate_plugin.py
-   ```
-5. Build a distribution archive:
-   ```bash
-   python scripts/package_plugin.py
-   ```
+**Read [platform compatibility and installation instructions](docs/PLATFORM_COMPATIBILITY.md).** Each product has its own eligibility, permissions, installation UI and execution capabilities. Publishing on GitHub does not make ATLAS automatically available inside every chatbot.
 
-## Repository structure
+## Build and verify
 
-```text
-plugin.json                  Agent Plugins manifest
-skills/                      Six focused agent skills
-docs/                        Install and architecture guides
-tests/                       Manual acceptance scenarios
-scripts/                     Offline validator and ZIP packager
-.github/workflows/           Basic validation CI
-CONTRIBUTING.md              How to contribute
-SECURITY.md                  Security issue guidance
-CHANGELOG.md                 Release notes
-LICENSE                      MIT open-source license
+Requires Python 3.10+; scripts use the standard library.
+
+```bash
+python scripts/validate_plugin.py
+python scripts/package_plugin.py
+python scripts/export_adapters.py
 ```
 
-## Community, contributions, and roadmap
+See [architecture](docs/ARCHITECTURE.md), [installation](docs/INSTALL.md), [manual acceptance scenarios](tests/CROSS_PLATFORM_ACCEPTANCE.md), and [contributing](CONTRIBUTING.md).
 
-Contributions are welcome to **propose** improvements. See [CONTRIBUTING.md](CONTRIBUTING.md). Potential areas include multilingual intent tests, sample coding tasks, evidence-oriented benchmarks, compatibility checks, and documented integration adapters.
+## License and contributing
 
-Do not claim performance benchmarks or security coverage without running and documenting them.
-
-## License
-
-ATLAS is available under the [MIT License](LICENSE). Copyright (c) 2026 Asbabillail. Contributors should follow the licensing notes in [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## A note on availability
-
-Making this repository public lets people read and download its source. Installing the plugin in ChatGPT depends on compatible plugin upload/import options, permissions, and account/workspace availability. It is **not** automatically listed in the public ChatGPT Plugin Directory.
-
-This repository is independent community-authored guidance and is not an official OpenAI product or an OpenAI Verified plugin.
+ATLAS is distributed under the [MIT License](LICENSE). Review [security reporting](SECURITY.md) and [contribution guidelines](CONTRIBUTING.md) before opening issues or pull requests. This is community-authored guidance, not an official OpenAI, Google, Anthropic or GitHub product.
